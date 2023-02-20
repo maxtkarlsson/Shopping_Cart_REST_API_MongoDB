@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("express-async-errors");
 const express = require("express");
 const mongoose = require("mongoose");
 const shoppingCartRoutes = require("./routes/shoppingCartRoutes");
@@ -8,8 +9,6 @@ const { notFoundMiddleware } = require("./middleware/notFoundMiddleware");
 
 const app = express();
 
-/* ------- 3) Sätt upp våran middleware ------- */
-// Parse JSON on request body and place on req.body
 app.use(express.json());
 
 app.use((req, res, next) => {
