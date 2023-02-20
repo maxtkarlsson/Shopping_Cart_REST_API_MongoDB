@@ -1,4 +1,3 @@
-const { default: mongoose } = require("mongoose");
 const Product = require("../models/Product");
 const ShoppingCart = require("../models/ShoppingCart");
 const { NotFoundError } = require("../utils/errors");
