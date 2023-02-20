@@ -102,13 +102,15 @@ exports.removeProductFromCart = async (req, res) => {
   const foundProduct = productsInCart.find(
     (productToRemove) => productToRemove.productId == productId
   );
+
+  if (!foundProduct)
+    throw new NotFoundError("This product does not exist in the cart");
+
   console.log(JSON.stringify(foundProduct));
 
   const foundProductPos = productsInCart.findIndex(
     (productToRemove) => productToRemove.productId == productId
   );
-  if (!foundProductPos)
-    throw new NotFoundError("This product does not exist in the cart");
 
   console.log("FoundProductPos = " + foundProductPos);
 
